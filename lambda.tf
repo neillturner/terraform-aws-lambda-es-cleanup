@@ -7,7 +7,7 @@ resource "aws_lambda_function" "es_cleanup_vpc" {
   runtime          = "python${var.python_version}"
   role             = "${aws_iam_role.role.arn}"
   handler          = "es-cleanup.lambda_handler"
-  source_code_hash = "${data.archive_file.es_cleanup_lambda.output_base64sha256}"
+  source_code_hash = "${base64sha256(file("${path.module}/es-cleanup.zip"))}"
 
   environment {
     variables = {
@@ -42,7 +42,7 @@ resource "aws_lambda_function" "es_cleanup" {
   runtime          = "python${var.python_version}"
   role             = "${aws_iam_role.role.arn}"
   handler          = "es-cleanup.lambda_handler"
-  source_code_hash = "${data.archive_file.es_cleanup_lambda.output_base64sha256}"
+  source_code_hash = "${base64sha256(file("${path.module}/es-cleanup.zip"))}"
 
   environment {
     variables = {
