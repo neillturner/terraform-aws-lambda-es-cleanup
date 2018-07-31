@@ -1,8 +1,10 @@
 variable "prefix" {
+  description = "A prefix for the resource names, this helps create multiple instances of this stack for different environments"
   default = ""
 }
 
 variable "schedule" {
+  description = "Cron Schedule expression for running the cleanup function"
   default = "cron(0 3 * * ? *)"
 }
 
@@ -11,7 +13,9 @@ variable "sns_alert" {
   default     = ""
 }
 
-variable "es_endpoint" {}
+variable "es_endpoint" {
+  description = "AWS ES fqdn"
+}
 
 variable "index" {
   description = "Index/indices to process comma separated, with all every index will be processed except '.kibana'"
@@ -29,6 +33,7 @@ variable "index_format" {
 }
 
 variable "python_version" {
+  description = "Python version to be used"
   default = "2.7"
 }
 
