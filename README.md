@@ -1,7 +1,7 @@
 # terraform-aws-lambda-es-cleanup
 AWS Elasticsearch Lambda Curator
 
-This directory contains terraform 0.9 module for deleting old Elasticsearch
+This directory contains terraform 0.12 module for deleting old Elasticsearch
 indices.
 
 Particularly it creates:
